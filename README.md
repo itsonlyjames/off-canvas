@@ -26,8 +26,13 @@ You must add the off-canvas selector above everything on the page, then add the 
   <div class="header">
   </div>
   <div class="content">
-  </div<
+  </div>
 </div>
+```
+
+Don't forget to add the button so off canvas can be toggled
+```html
+<div class="mobile-button">Open Menu</div>
 ```
 
 ## Extra Settings
