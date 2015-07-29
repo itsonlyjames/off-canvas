@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<script type='text/javascript' src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
+		<script type='text/javascript' src='src/min/off-canvas-min.js'></script>
+	</head>
+	<body>
+
+		<style type="text/css">
+			.off-canvas {
+			    background-color: #424242;
+			}
+		</style>
+
+		<div class="off-canvas">
+		testing
+		</div>
+		<div class="container-wrapper">
+			<a class="mobile-button">Click this to test off canvas</a>
+		</div>
+		<script type="text/javascript">
+			$(".off-canvas").canvas({
+		        containerSurround: '.container-wrapper',
+		        buttonSelector: '.mobile-button',
+		        duration: 200,
+		        mobileOnly: true,
+		        mobileWidth: 800,
+		        transition: 'ease-in-out',
+		        sizeWidth: '70%',
+		        sizeInPixels: false,
+		        side: 'left',
+		    });
+		</script>
+	</body>
+</html>
