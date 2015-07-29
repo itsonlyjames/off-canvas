@@ -5,6 +5,7 @@ Simples
 # Install
 ## Download
 [off-canvas.js](https://raw.githubusercontent.com/itsonlyjames/off-canvas/master/src/off-canvas.js)
+[off-canvas-min.js](https://raw.githubusercontent.com/itsonlyjames/off-canvas/master/src/min/off-canvas-min.js)
 
 ## Initialize
 With Jquery
