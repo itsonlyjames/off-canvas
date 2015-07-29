@@ -30,3 +30,48 @@ You must add the off-canvas selector above everything on the page, then add the 
 </div>
 ```
 
+## Extra Settings
+```javascript
+$(".off-canvas").canvas({
+    containerSurround: '.container-wrapper',
+    buttonSelector: '.mobile-button',
+    duration: 200,
+    mobileOnly: true,
+    mobileWidth: 800,
+    transition: 'ease-in-out',
+    sizeWidth: '70%',
+    sizeInPixels: false,
+    side: 'left',
+});
+```
+
+### Extra Settings Description
+containerSurround: Which element to wrap the container around.
+
+buttonSelector: Which element to apply the click (open/close) to.
+
+duration: How long the transition takes (in ms).
+
+mobileOnly: If true the menu will close once the mobileWidth has been reached.
+
+mobileWidth: Close the off canvas after the browser is equal to or larger than the number, in pixels.
+
+transition: Standard css transitions, e.g: 'linear', 'ease', 'ease-in', 'ease-out'.
+
+sizeWidth: The size of the menu, in percentage if sizeInPixels is set to false. 
+
+sizeInPixels: If true the sizeWidth will be set in pixels. If false it will be in percentages. E.g:
+
+sizeInPixels = true
+```javascript
+sizeWidth: 700,
+sizeInPixels: true
+```
+sizeInPixels = false
+```javascript
+sizeWidth: '70%',
+sizeInPixels: false
+```
+
+side: Which side the off canvas menu is on.
+
