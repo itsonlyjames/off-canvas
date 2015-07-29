@@ -3,9 +3,8 @@ A simple off canvas menu, it can be as simple or complex as you like.
 
 # Install
 ## Download
-[off-canvas.js](https://raw.githubusercontent.com/itsonlyjames/off-canvas/master/src/off-canvas.js)
-
-[off-canvas-min.js](https://raw.githubusercontent.com/itsonlyjames/off-canvas/master/src/min/off-canvas-min.js)
+- [off-canvas.js](https://raw.githubusercontent.com/itsonlyjames/off-canvas/master/src/off-canvas.js) un-minified,
+- [off-canvas-min.js](https://raw.githubusercontent.com/itsonlyjames/off-canvas/master/src/min/off-canvas-min.js) minified
 
 ## Initialize
 With Jquery
