@@ -1,21 +1,28 @@
 <html>
 	<head>
 		<script type='text/javascript' src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
-		<script type='text/javascript' src='src/min/off-canvas-min.js'></script>
+		<script type='text/javascript' src='../src/min/off-canvas-min.js'></script>
 	</head>
 	<body>
 
 		<style type="text/css">
-			.off-canvas {
-			    background-color: #424242;
+			body {
+				padding: 0;
+				margin: 0;
 			}
+			.off-canvas {
+			    background-color: #7F7F7F;
+			}
+			.off-canvas p {}
 		</style>
 
 		<div class="off-canvas">
-		testing
+			<p>This is off canvas!</p>
+			<p>Click outside this to close, click the button again or simply press the escape key to close</p>
 		</div>
 		<div class="container-wrapper">
-			<a class="mobile-button">Click this to test off canvas</a>
+			<a href="javascript:void(0);" class="mobile-button">Click this to test off canvas</a>
+			<p>This is where all your site content will go</p>
 		</div>
 		<script type="text/javascript">
 			$(".off-canvas").canvas({
