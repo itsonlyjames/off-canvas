@@ -1,6 +1,5 @@
 # Off Canvas
-Off canvas menu
-Simples
+A simple off canvas menu, it can be as simple or complex as you like.
 
 # Install
 ## Download
