@@ -4,18 +4,18 @@
   var canvas = [];
   // sets defaults unless overidden by user
   var defaults = {
-      containerSurround: '.container',
-      buttonSelector: '.mobile-button',
-      mobileOnly: false,
-      mobileWidth: 1920,
-      distanceX: '100%',
-      duration: 400,
-      transition: 'ease',
-      sizeWidth: '70%',
-      sizeInPixels: false,
-      side: 'left',
+    containerSurround: '.container',
+    buttonSelector: '.mobile-button',
+    mobileOnly: false,
+    mobileWidth: 1920,
+    distanceX: '100%',
+    duration: 400,
+    transition: 'ease',
+    sizeWidth: '70%',
+    sizeInPixels: false,
+    side: 'left',
   };
-  
+
   var browserPrefixes = ['ms', 'moz', 'o', 'webkit'];
   var prefixedCSSAttribute = function(attribute, value) {
     var prefix, i, len, cssObject = {};
