@@ -55,14 +55,14 @@
     }
 
     var setup = function() {
-      var $document = $(document)
-      var $window = $(window)
+      $document = $(document);
+      $window = $(window);
       // store container for easier use later on
-      var container = $(canvas.options.containerSurround);
+      container = $(canvas.options.containerSurround);
       // wrap container with outer div to keep html clear
       container.wrap('<div class="outer-container"></div>');
       // also store button for use later on
-      var $button = $(canvas.options.buttonSelector);
+      $button = $(canvas.options.buttonSelector);
       // If statement for if side is left/right, then goes into if size is in pixels true/false
       if (canvas.options.side == 'left') {
         if (canvas.options.sizeInPixels) {
@@ -159,7 +159,7 @@
     // on button click toggle canvas
     $button.click(function(e) {
       canvas.toggle();
-      e.preventDefault();
+      return false;
     });
     // stop clicking on canvas from closing it
     $(canvas).click(function(e) {
