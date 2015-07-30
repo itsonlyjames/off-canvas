@@ -5,8 +5,7 @@ A quick (and ugly) demo version can be viewed [here](http://itsonlyjames.github.
 
 # Install
 ## Download
-- [off-canvas.js](https://raw.githubusercontent.com/itsonlyjames/off-canvas/master/src/off-canvas.js) un-minified,
-- [off-canvas-min.js](https://raw.githubusercontent.com/itsonlyjames/off-canvas/master/src/min/off-canvas-min.js) minified
+- [off-canvas.js](https://raw.githubusercontent.com/itsonlyjames/off-canvas/master/src/off-canvas.js) un-minified
 
 ## Initialize
 With Jquery
@@ -43,7 +42,7 @@ $(".off-canvas").canvas({
     containerSurround: '.container-wrapper',
     buttonSelector: '.mobile-button',
     duration: 200,
-    mobileOnly: true,
+    mobileOnly: false,
     mobileWidth: 800,
     transition: 'ease-in-out',
     sizeWidth: '70%',
@@ -65,19 +64,14 @@ mobileWidth: Close the off canvas after the browser is equal to or larger than t
 
 transition: Standard css transitions, e.g: 'linear', 'ease', 'ease-in', 'ease-out'.
 
-sizeWidth: The size of the menu, in percentage if sizeInPixels is set to false. 
+sizeWidth: The size of the menu, which can be a percentage or pixels. E.g: 
 
-sizeInPixels: If true the sizeWidth will be set in pixels. If false it will be in percentages. E.g:
-
-sizeInPixels = true
 ```javascript
-sizeWidth: 700,
-sizeInPixels: true
+sizeWidth: '700px',
 ```
-sizeInPixels = false
+or
 ```javascript
 sizeWidth: '70%',
-sizeInPixels: false
 ```
 
 side: Which side the off canvas menu is on.
