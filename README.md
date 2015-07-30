@@ -70,6 +70,7 @@ sizeWidth: The size of the menu, which can be a percentage or pixels. E.g:
 ```javascript
 sizeWidth: '700px',
 ```
+or
 ```javascript
 sizeWidth: '70%',
 ```
