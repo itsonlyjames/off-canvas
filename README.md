@@ -5,8 +5,7 @@ A quick (and ugly) demo version can be viewed [here](http://itsonlyjames.github.
 
 # Install
 ## Download
-- [off-canvas.js](https://raw.githubusercontent.com/itsonlyjames/off-canvas/master/src/off-canvas.js) un-minified,
-- [off-canvas-min.js](https://raw.githubusercontent.com/itsonlyjames/off-canvas/master/src/min/off-canvas-min.js) minified
+- [off-canvas.js](https://raw.githubusercontent.com/itsonlyjames/off-canvas/master/src/off-canvas.js) un-minified
 
 ## Initialize
 With Jquery
