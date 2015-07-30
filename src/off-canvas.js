@@ -55,14 +55,14 @@
     }
 
     var setup = function() {
+      var $document = $(document)
+      var $window = $(window)
       // store container for easier use later on
       container = $(canvas.options.containerSurround);
       // wrap container with outer div to keep html clear
       container.wrap('<div class="outer-container"></div>');
       // also store button for use later on
-      click = $(canvas.options.buttonSelector);
-      // store mobile width for easier user
-      mobileWidth = $(canvas.options.mobileWidth);
+      $button = $(canvas.options.buttonSelector);
       // If statement for if side is left/right, then goes into if size is in pixels true/false
       if (canvas.options.side == 'left') {
         if (canvas.options.sizeInPixels) {
@@ -181,29 +181,29 @@
     // init, runs everything and makes magic happen!
     init();
     // on button click toggle canvas
-    $(click).click(function() {
+    $button.click(function(e) {
       canvas.toggle();
-      return false;
+      e.preventDefault();
     });
     // stop clicking on canvas from closing it
     $(canvas).click(function(e) {
       e.stopPropagation();
     });
     // close canvas on document click
-    $(document).click(function() {
+    $document.click(function() {
       canvas.close();
     });
     // close canvas on window resize if window is greater than mobileWidth and has class open and mobileOnly is set to true
-    $(window).resize(function() {
-      if ($(window).width() >= canvas.options.mobileWidth && canvas.hasClass('open') && canvas.options.mobileOnly) {
+    $window.resize(function() {
+      if ($window.width() >= canvas.options.mobileWidth && canvas.hasClass('open') && canvas.options.mobileOnly) {
         canvas.close();
       }
     });
     // close canvas when escape key is pressed
-    $(document).keyup(function(e) {
+    $document.keyup(function(e) {
       if(e.keyCode == 27) {
         canvas.close();
-        return false;
+        e.preventDefault();
       }
     });
   };
