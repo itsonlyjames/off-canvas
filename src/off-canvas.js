@@ -59,15 +59,10 @@
       $button = $(canvas.options.buttonSelector);
       // If statement for if side is left/right, then goes into if size is in pixels true/false
       if (canvas.options.side == 'left') {
-        if (canvas.options.sizeInPixels) {
-          canvas.css({
-            'left': '-' + canvas.options.sizeWidth + 'px',
-          });
-        } else {
-          canvas.css({
-            'left': '-' + canvas.options.sizeWidth,
-          });
-        }
+        var units = canvas.options.sizeInPixels ? 'px' : '';
+        canvas.css({
+          'left': '-' + canvas.options.sizeWidth + units,
+        });
       }
       if (canvas.options.side == 'right') {
         canvas.wrap('<div class="off-canvas-side-right"></div>');
