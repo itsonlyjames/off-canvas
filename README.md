@@ -1,6 +1,8 @@
 # Off Canvas
 A simple off canvas menu, which can be as simple or complex as you like.
 
+A quick (and ugly) demo version can be viewed [here](http://itsonlyjames.github.io/off-canvas/), it's simply for understanding what this plugin does. 
+
 # Install
 ## Download
 - [off-canvas.js](https://raw.githubusercontent.com/itsonlyjames/off-canvas/master/src/off-canvas.js) un-minified,
