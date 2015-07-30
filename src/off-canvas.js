@@ -119,38 +119,19 @@
     }
     // store this function so it runs quicker later on, it's also cleaner this way
     var percentContainer = function(sizeWidth) {
-      // Same if statement as above, checks left/right then true/false
-      if (canvas.options.side == 'left') {
-        if (canvas.options.sizeInPixels) {
-          container.css(prefixedCSSAttribute('transform', 'translate3d(' + sizeWidth + 'px, 0, 0)'));
-        } else {
-          container.css(prefixedCSSAttribute('transform', 'translate3d(' + sizeWidth + ', 0, 0)'));
-        }
-      }
-
-      if (canvas.options.side == 'right') {
-        if (canvas.options.sizeInPixels) {
-          container.css(prefixedCSSAttribute('transform', 'translate3d(-' + sizeWidth + 'px, 0, 0)'));
-        } else {
-          container.css(prefixedCSSAttribute('transform', 'translate3d(-' + sizeWidth + ', 0, 0)'));
-        }
-      }
+      var units = canvas.options.sizeInPixels ? 'px' : '';
+      var direction = canvas.options.side == 'left' ? '' : '-';
+      container.css(prefixedCSSAttribute('transform', 'translate3d(' direction + sizeWidth + units ', 0, 0)'));
     }
     // store function of moving container
     var containerX = function(sizeWidth) {
-        // run function from above
-        percentContainer(sizeWidth);
+      // run function from above
+      percentContainer(sizeWidth);
     }
     // moving function for actual canvas
     var moveX = function(distanceX) {
-      // if function for left/right
-      if (canvas.options.side == 'left') {
-        canvas.css(prefixedCSSAttribute('transform', 'translate3d(' + distanceX + ', 0, 0)'));
-      }
-
-      if (canvas.options.side == 'right') {
-        canvas.css(prefixedCSSAttribute('transform', 'translate3d(-' + distanceX + ', 0, 0)'));
-      }
+      var direction = canvas.options.side == 'left' ? '' : '-';
+      canvas.css(prefixedCSSAttribute('transform', 'translate3d(' direction + distanceX + ', 0, 0)'));
     }
     // store css3 transitions, user selected duration & transition. standard css3 transitions
     var applyEffects = function(transition, duration) {
