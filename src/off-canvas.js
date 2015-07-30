@@ -58,11 +58,11 @@
       var $document = $(document)
       var $window = $(window)
       // store container for easier use later on
-      container = $(canvas.options.containerSurround);
+      var container = $(canvas.options.containerSurround);
       // wrap container with outer div to keep html clear
       container.wrap('<div class="outer-container"></div>');
       // also store button for use later on
-      $button = $(canvas.options.buttonSelector);
+      var $button = $(canvas.options.buttonSelector);
       // If statement for if side is left/right, then goes into if size is in pixels true/false
       if (canvas.options.side == 'left') {
         if (canvas.options.sizeInPixels) {
@@ -76,16 +76,11 @@
         }
       }
       if (canvas.options.side == 'right') {
-        canvas.wrap('<div class="side-right"></div>')
-        if (canvas.options.sizeInPixels) {
-          canvas.css({
-            'right': '-' + canvas.options.sizeWidth + 'px',
-          });
-        } else {
-          canvas.css({
-            'right': '-' + canvas.options.sizeWidth,
-          });
-        }
+        canvas.wrap('<div class="side-right"></div>');
+        var units = canvas.options.sizeInPixels ? 'px' : '';
+        canvas.css({
+          'right': '-' + canvas.options.sizeWidth + units,
+        });
       }
       // sets standard canvas css
       canvas.css({
