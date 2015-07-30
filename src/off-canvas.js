@@ -116,7 +116,7 @@
     var percentContainer = function(sizeWidth) {
       var units = canvas.options.sizeInPixels ? 'px' : '';
       var direction = canvas.options.side == 'left' ? '' : '-';
-      container.css(prefixedCSSAttribute('transform', 'translate3d(' direction + sizeWidth + units ', 0, 0)'));
+      container.css(prefixedCSSAttribute('transform', 'translate3d(' + direction + sizeWidth + units + ', 0, 0)'));
     }
     // store function of moving container
     var containerX = function(sizeWidth) {
@@ -126,7 +126,7 @@
     // moving function for actual canvas
     var moveX = function(distanceX) {
       var direction = canvas.options.side == 'left' ? '' : '-';
-      canvas.css(prefixedCSSAttribute('transform', 'translate3d(' direction + distanceX + ', 0, 0)'));
+      canvas.css(prefixedCSSAttribute('transform', 'translate3d(' + direction + distanceX + ', 0, 0)'));
     }
     // store css3 transitions, user selected duration & transition. standard css3 transitions
     var applyEffects = function(transition, duration) {
