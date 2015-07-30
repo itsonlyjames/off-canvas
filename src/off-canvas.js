@@ -4,18 +4,18 @@
   var canvas = [];
   // sets defaults unless overidden by user
   var defaults = {
-      containerSurround: '.container',
-      buttonSelector: '.mobile-button',
-      mobileOnly: false,
-      mobileWidth: 1920,
-      distanceX: '100%',
-      duration: 400,
-      transition: 'ease',
-      sizeWidth: '70%',
-      sizeInPixels: false,
-      side: 'left',
+    containerSurround: '.container',
+    buttonSelector: '.mobile-button',
+    mobileOnly: false,
+    mobileWidth: 1920,
+    distanceX: '100%',
+    duration: 400,
+    transition: 'ease',
+    sizeWidth: '70%',
+    sizeInPixels: false,
+    side: 'left',
   };
-  
+
   var browserPrefixes = ['ms', 'moz', 'o', 'webkit'];
   var prefixedCSSAttribute = function(attribute, value) {
     var prefix, i, len, cssObject = {};
@@ -55,14 +55,14 @@
     }
 
     var setup = function() {
+      var $document = $(document)
+      var $window = $(window)
       // store container for easier use later on
-      container = $(canvas.options.containerSurround);
+      var container = $(canvas.options.containerSurround);
       // wrap container with outer div to keep html clear
       container.wrap('<div class="outer-container"></div>');
       // also store button for use later on
-      click = $(canvas.options.buttonSelector);
-      // store mobile width for easier user
-      mobileWidth = $(canvas.options.mobileWidth);
+      var $button = $(canvas.options.buttonSelector);
       // If statement for if side is left/right, then goes into if size is in pixels true/false
       if (canvas.options.side == 'left') {
         if (canvas.options.sizeInPixels) {
@@ -76,16 +76,11 @@
         }
       }
       if (canvas.options.side == 'right') {
-        canvas.wrap('<div class="side-right"></div>')
-        if (canvas.options.sizeInPixels) {
-          canvas.css({
-            'right': '-' + canvas.options.sizeWidth + 'px',
-          });
-        } else {
-          canvas.css({
-            'right': '-' + canvas.options.sizeWidth,
-          });
-        }
+        canvas.wrap('<div class="side-right"></div>');
+        var units = canvas.options.sizeInPixels ? 'px' : '';
+        canvas.css({
+          'right': '-' + canvas.options.sizeWidth + units,
+        });
       }
       // sets standard canvas css
       canvas.css({
@@ -119,38 +114,19 @@
     }
     // store this function so it runs quicker later on, it's also cleaner this way
     var percentContainer = function(sizeWidth) {
-      // Same if statement as above, checks left/right then true/false
-      if (canvas.options.side == 'left') {
-        if (canvas.options.sizeInPixels) {
-          container.css(prefixedCSSAttribute('transform', 'translate3d(' + sizeWidth + 'px, 0, 0)'));
-        } else {
-          container.css(prefixedCSSAttribute('transform', 'translate3d(' + sizeWidth + ', 0, 0)'));
-        }
-      }
-
-      if (canvas.options.side == 'right') {
-        if (canvas.options.sizeInPixels) {
-          container.css(prefixedCSSAttribute('transform', 'translate3d(-' + sizeWidth + 'px, 0, 0)'));
-        } else {
-          container.css(prefixedCSSAttribute('transform', 'translate3d(-' + sizeWidth + ', 0, 0)'));
-        }
-      }
+      var units = canvas.options.sizeInPixels ? 'px' : '';
+      var direction = canvas.options.side == 'left' ? '' : '-';
+      container.css(prefixedCSSAttribute('transform', 'translate3d(' direction + sizeWidth + units ', 0, 0)'));
     }
     // store function of moving container
     var containerX = function(sizeWidth) {
-        // run function from above
-        percentContainer(sizeWidth);
+      // run function from above
+      percentContainer(sizeWidth);
     }
     // moving function for actual canvas
     var moveX = function(distanceX) {
-      // if function for left/right
-      if (canvas.options.side == 'left') {
-        canvas.css(prefixedCSSAttribute('transform', 'translate3d(' + distanceX + ', 0, 0)'));
-      }
-
-      if (canvas.options.side == 'right') {
-        canvas.css(prefixedCSSAttribute('transform', 'translate3d(-' + distanceX + ', 0, 0)'));
-      }
+      var direction = canvas.options.side == 'left' ? '' : '-';
+      canvas.css(prefixedCSSAttribute('transform', 'translate3d(' direction + distanceX + ', 0, 0)'));
     }
     // store css3 transitions, user selected duration & transition. standard css3 transitions
     var applyEffects = function(transition, duration) {
@@ -181,29 +157,29 @@
     // init, runs everything and makes magic happen!
     init();
     // on button click toggle canvas
-    $(click).click(function() {
+    $button.click(function(e) {
       canvas.toggle();
-      return false;
+      e.preventDefault();
     });
     // stop clicking on canvas from closing it
     $(canvas).click(function(e) {
       e.stopPropagation();
     });
     // close canvas on document click
-    $(document).click(function() {
+    $document.click(function() {
       canvas.close();
     });
     // close canvas on window resize if window is greater than mobileWidth and has class open and mobileOnly is set to true
-    $(window).resize(function() {
-      if ($(window).width() >= canvas.options.mobileWidth && canvas.hasClass('open') && canvas.options.mobileOnly) {
+    $window.resize(function() {
+      if ($window.width() >= canvas.options.mobileWidth && canvas.hasClass('open') && canvas.options.mobileOnly) {
         canvas.close();
       }
     });
     // close canvas when escape key is pressed
-    $(document).keyup(function(e) {
+    $document.keyup(function(e) {
       if(e.keyCode == 27) {
         canvas.close();
-        return false;
+        e.preventDefault();
       }
     });
   };
