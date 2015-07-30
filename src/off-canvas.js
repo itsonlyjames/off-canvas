@@ -36,7 +36,6 @@
     if (this.length === 0) return this;
 
     if (this.length > 1) {
-      // Pushes user selections to options
       this.each(function() {
         canvas.push($(this).off(options));
       });
@@ -48,20 +47,15 @@
     canvas = this;
 
     var init = function() {
-      // Run options
       canvas.options = $.extend(defaults, options);
-      // Run setup function
       setup();
     }
 
     var setup = function() {
       $document = $(document);
       $window = $(window);
-      // store container for easier use later on
       container = $(canvas.options.containerSurround);
-      // wrap container with outer div to keep html clear
       container.wrap('<div class="outer-container"></div>');
-      // also store button for use later on
       $button = $(canvas.options.buttonSelector);
       // If statement for if side is left/right, then goes into if size is in pixels true/false
       if (canvas.options.side == 'left') {
@@ -132,14 +126,14 @@
     var applyEffects = function(transition, duration) {
       canvas.add(container).css(prefixedCSSAttribute('transition', '%{prefix}transform ' + duration + 'ms ' + transition));
     }
-    // open canvas
+
     canvas.open = function() {
       moveX(canvas.options.distanceX);
       canvas.addClass('open');
       containerX(canvas.options.sizeWidth);
       container.addClass('active');
     }
-    // close canvas
+
     canvas.close = function() {
       moveX(0);
       canvas.removeClass('open');
@@ -156,7 +150,7 @@
     }
     // init, runs everything and makes magic happen!
     init();
-    // on button click toggle canvas
+
     $button.click(function(e) {
       canvas.toggle();
       return false;
@@ -165,7 +159,7 @@
     $(canvas).click(function(e) {
       e.stopPropagation();
     });
-    // close canvas on document click
+
     $document.click(function() {
       canvas.close();
     });
