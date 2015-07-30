@@ -57,7 +57,7 @@
       container = $(canvas.options.containerSurround);
       container.wrap('<div class="off-canvas-outer-container"></div>');
       $button = $(canvas.options.buttonSelector);
-      // If statement for if side is left/right, then goes into if size is in pixels true/false
+
       if (canvas.options.side == 'left') {
         var units = canvas.options.sizeInPixels ? 'px' : '';
         canvas.css({
