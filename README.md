@@ -1,5 +1,5 @@
 # Off Canvas
-A simple off canvas menu, which can be as simple or complex as you like.
+A simple off canvas menu which puts the menu off screen, creating more content viewing space for the end-user. It's especially good for mobile sites.
 
 A quick (and ugly) demo version can be viewed [here](http://itsonlyjames.github.io/off-canvas/), it's simply for understanding what this plugin does. 
 
